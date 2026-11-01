@@ -1,0 +1,26 @@
+{
+  "model_name": "MORTM4.5E-A80M-E64",
+  "description": "MORTM4.5E 64エキスパートMoE基盤(Foundation)モデル(Active 80M / 64 Experts)。条件入力なし(<EOS>のみ)から自律的にピアノ/サックスのフレーズを生成します。",
+  "tag": {
+    "instruments": ["PIANO", "SAX"],
+    "model": "foundation",
+    "task": ["Generate"],
+    "type": "mortm",
+    "version": "4.5"
+  },
+  "rule": {
+    "input_midi": false,
+    "multi_instrument": true,
+    "temperature": true,
+    "top_p": true,
+    "number_of_generation": true,
+    "send_context_past": false,
+    "send_context_condition": false,
+    "send_context_future": false,
+    "send_chord_progression": false,
+    "gen_measure_count": false,
+    "gen_note_dense": false,
+    "send_chord": false,
+    "send_genre": false
+  }
+}

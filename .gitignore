@@ -1,0 +1,39 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment & Secrets (secure-coding-guard)
+.env
+*.env
+*.env.*
+!.env.example
+*serviceAccountKey*.json
+*credentials*.json
+*.pem
+*.key
+
+# Virtual environments & Frontend build artifacts
+.venv/
+venv/
+env/
+.vite/
+frontend/.vite/
+frontend/node_modules/
+frontend/dist/
+frontend/release/
+*.tsbuildinfo
+
+# Model checkpoints & temporary outputs
+*.pth
+*.pt
+*.ckpt
+*.safetensors
+scratch/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# OS files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,25 @@
+{
+  "model_name": "MORTM4.5-Pro-Preview",
+  "description": "ピアノやサックスを含む多彩な楽器編成に対応したMORTM4.5のプロフェッショナル版モデルです。高度なモチーフ生成能力を備え、複雑な音楽構造を持つ楽曲の生成に優れています。ジャズやポップスなど幅広いジャンルでの使用に適しています。",
+  "tag": {
+    "instruments":["PIANO", "SAX"],
+    "task": ["Meta2MIDI"],
+    "model": "pretrained",
+    "type": "mortm",
+    "version": "4.5"
+  },
+  "rule": {
+    "input_midi": false,
+    "multi_instrument": true,
+    "temperature": true,
+    "top_p": true,
+    "number_of_generation": true,
+    "send_context_past": false,
+    "send_context_condition": false,
+    "send_context_future": false,
+    "send_chord_progression": false,
+    "gen_measure_count": false,
+    "gen_note_dense": false,
+    "send_chord": false
+  }
+}

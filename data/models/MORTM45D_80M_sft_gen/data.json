@@ -1,0 +1,35 @@
+{
+  "model_name": "MORTM4.5D-80M-SFT-Gen",
+  "description": "MORTM4.5D 基盤モデルを生成タスク向けにSFTした80Mモデル。メタ情報(楽器/音符密度/キー/ジャンル/生成小節数)と、過去/未来/条件コンテキストMIDIから旋律を生成します。対応タスク: メタのみ生成(meta)、過去からの続き(meta_past)、未来への生成(meta_future)、過去+未来からの中間補完(infill)、他楽器の旋律から指定楽器の旋律を生成する編曲(inst_comp)。可変入出力長(1〜8小節)・42ジャンル・CoT(思考)に対応。",
+  "tag": {
+    "instruments": ["PIANO", "SAX"],
+    "model": "sft_gen",
+    "task": ["meta", "meta_past", "meta_future", "infill", "inst_comp"],
+    "type": "mortm",
+    "version": "4.5",
+    "genres": [
+      "80s", "90s", "alternative", "ambient", "blues", "celtic", "chillout",
+      "classical", "country", "dance", "drumnbass", "easylistening", "electronic",
+      "electropop", "experimental", "folk", "funk", "hiphop", "house", "indie",
+      "instrumentalpop", "instrumentalrock", "jazz", "jazzfusion", "latin", "lounge",
+      "metal", "newage", "orchestral", "pop", "popfolk", "poprock", "punkrock",
+      "reggae", "rock", "soundtrack", "swing", "symphonic", "synthpop", "techno",
+      "trance", "world"
+    ]
+  },
+  "rule": {
+    "input_midi": true,
+    "multi_instrument": true,
+    "temperature": true,
+    "top_p": true,
+    "number_of_generation": true,
+    "send_context_past": true,
+    "send_context_condition": true,
+    "send_context_future": true,
+    "send_chord_progression": false,
+    "gen_measure_count": true,
+    "gen_note_dense": true,
+    "send_chord": false,
+    "send_genre": true
+  }
+}

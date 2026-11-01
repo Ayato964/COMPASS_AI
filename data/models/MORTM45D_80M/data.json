@@ -1,0 +1,26 @@
+{
+  "model_name": "MORTM4.5D-80M",
+  "description": "MORTM4.5D 基盤(Foundation)モデル(80M)。ブロック穴埋め(Past/Const/Future)による事前学習で得た音楽の汎用表現を持ち、条件入力なし(<EOS>のみ)から自律的にピアノ/サックスのフレーズを生成します。フロントからの入力は不要で、温度・top-p・生成数のみ調整できます。",
+  "tag": {
+    "instruments": ["PIANO", "SAX"],
+    "model": "foundation",
+    "task": ["Generate"],
+    "type": "mortm",
+    "version": "4.5"
+  },
+  "rule": {
+    "input_midi": false,
+    "multi_instrument": true,
+    "temperature": true,
+    "top_p": true,
+    "number_of_generation": true,
+    "send_context_past": false,
+    "send_context_condition": false,
+    "send_context_future": false,
+    "send_chord_progression": false,
+    "gen_measure_count": false,
+    "gen_note_dense": false,
+    "send_chord": false,
+    "send_genre": false
+  }
+}

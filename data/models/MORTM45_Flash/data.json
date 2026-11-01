@@ -1,0 +1,25 @@
+{
+  "model_name": "MORTM4.5-Flash-Preview",
+  "description": "ピアノやサックスを含む多様な楽器の演奏に対応したMORTM4.5モデルの軽量版です。高速な生成を実現しています。",
+  "tag": {
+    "instruments":[ "PIANO", "SAX"],
+    "task": ["Meta2MIDI"],
+    "model": "pretrained",
+    "type": "mortm",
+    "version": "4.5"
+  },
+  "rule": {
+    "input_midi": false,
+    "multi_instrument": true,
+    "temperature": true,
+    "top_p": true,
+    "number_of_generation": true,
+    "send_context_past": false,
+    "send_context_condition": false,
+    "send_context_future": false,
+    "send_chord_progression": false,
+    "gen_measure_count": false,
+    "gen_note_dense": true,
+    "send_chord": false
+  }
+}

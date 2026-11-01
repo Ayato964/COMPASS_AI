@@ -1,0 +1,203 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    color-scheme: dark;
+    background-color: #09090B;
+    color: #F4F4F5;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "BIZ UDPGothic", "BIZ UDGothic", Meiryo, sans-serif;
+    line-break: strict;
+    overflow-wrap: anywhere;
+  }
+
+  * {
+    box-sizing: border-box;
+    border-color: #27272A;
+  }
+}
+
+/* Subtle studio scrollbars (monochrome, >= 3.0:1 SC 1.4.11 contrast, zero glow) */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #09090B;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #82828B;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #A1A1AA;
+}
+
+/* Accessible keyboard & hover studio tooltips (`WCAG 2.1 SC 1.4.13`: hoverable via JS corridor bridge, Escape-dismissible, adaptive, strictly `pointer-events: none` so neighbor controls/canvas are never occluded) */
+button[data-tooltip] {
+  position: relative;
+}
+
+button[data-tooltip]:not(:disabled):not([data-tooltip-dismissed='true']):hover::after,
+button[data-tooltip]:not(:disabled):not([data-tooltip-dismissed='true']):focus-visible::after,
+button[data-tooltip][data-tooltip-bridge='true']:not(:disabled):not([data-tooltip-dismissed='true'])::after,
+button[data-tooltip][data-tooltip-when-disabled='true']:disabled:not([data-tooltip-dismissed='true']):hover::after,
+button[data-tooltip][data-tooltip-when-disabled='true'][data-tooltip-hovered='true']:disabled:not([data-tooltip-dismissed='true'])::after,
+button[data-tooltip][data-tooltip-when-disabled='true'][data-tooltip-bridge='true']:disabled:not([data-tooltip-dismissed='true'])::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 60;
+  padding: 4px 8px;
+  border-radius: 8px;
+  background-color: #18181B;
+  border: 1px solid #82828B;
+  color: #F4F4F5;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.35;
+  white-space: nowrap;
+  max-width: min(340px, calc(100vw - 16px));
+  overflow: hidden;
+  text-overflow: ellipsis;
+  pointer-events: none;
+}
+
+aside button[data-tooltip]:not(:disabled):not([data-tooltip-dismissed='true']):hover::after,
+aside button[data-tooltip]:not(:disabled):not([data-tooltip-dismissed='true']):focus-visible::after,
+aside button[data-tooltip][data-tooltip-bridge='true']:not(:disabled):not([data-tooltip-dismissed='true'])::after,
+aside button[data-tooltip][data-tooltip-when-disabled='true']:disabled:not([data-tooltip-dismissed='true']):hover::after,
+aside button[data-tooltip][data-tooltip-when-disabled='true'][data-tooltip-hovered='true']:disabled:not([data-tooltip-dismissed='true'])::after,
+aside button[data-tooltip][data-tooltip-when-disabled='true'][data-tooltip-bridge='true']:disabled:not([data-tooltip-dismissed='true'])::after {
+  max-width: min(224px, calc(100vw - 32px));
+}
+
+button[data-tooltip][data-tooltip-align='start']:not(:disabled):not([data-tooltip-dismissed='true']):hover::after,
+button[data-tooltip][data-tooltip-align='start']:not(:disabled):not([data-tooltip-dismissed='true']):focus-visible::after,
+button[data-tooltip][data-tooltip-align='start'][data-tooltip-bridge='true']:not(:disabled):not([data-tooltip-dismissed='true'])::after,
+button[data-tooltip][data-tooltip-align='start'][data-tooltip-when-disabled='true']:disabled:not([data-tooltip-dismissed='true']):hover::after,
+button[data-tooltip][data-tooltip-align='start'][data-tooltip-when-disabled='true'][data-tooltip-hovered='true']:disabled:not([data-tooltip-dismissed='true'])::after,
+button[data-tooltip][data-tooltip-align='start'][data-tooltip-when-disabled='true'][data-tooltip-bridge='true']:disabled:not([data-tooltip-dismissed='true'])::after {
+  left: 0;
+  transform: none;
+}
+
+button[data-tooltip][data-tooltip-align='end']:not(:disabled):not([data-tooltip-dismissed='true']):hover::after,
+button[data-tooltip][data-tooltip-align='end']:not(:disabled):not([data-tooltip-dismissed='true']):focus-visible::after,
+button[data-tooltip][data-tooltip-align='end'][data-tooltip-bridge='true']:not(:disabled):not([data-tooltip-dismissed='true'])::after,
+button[data-tooltip][data-tooltip-align='end'][data-tooltip-when-disabled='true']:disabled:not([data-tooltip-dismissed='true']):hover::after,
+button[data-tooltip][data-tooltip-align='end'][data-tooltip-when-disabled='true'][data-tooltip-hovered='true']:disabled:not([data-tooltip-dismissed='true'])::after,
+button[data-tooltip][data-tooltip-align='end'][data-tooltip-when-disabled='true'][data-tooltip-bridge='true']:disabled:not([data-tooltip-dismissed='true'])::after {
+  left: auto;
+  right: 0;
+  transform: none;
+}
+
+button[data-tooltip][data-tooltip-pos='top']:not(:disabled):not([data-tooltip-dismissed='true']):hover::after,
+button[data-tooltip][data-tooltip-pos='top']:not(:disabled):not([data-tooltip-dismissed='true']):focus-visible::after,
+button[data-tooltip][data-tooltip-pos='top'][data-tooltip-bridge='true']:not(:disabled):not([data-tooltip-dismissed='true'])::after,
+button[data-tooltip][data-tooltip-pos='top'][data-tooltip-when-disabled='true']:disabled:not([data-tooltip-dismissed='true']):hover::after,
+button[data-tooltip][data-tooltip-pos='top'][data-tooltip-when-disabled='true'][data-tooltip-hovered='true']:disabled:not([data-tooltip-dismissed='true'])::after,
+button[data-tooltip][data-tooltip-pos='top'][data-tooltip-when-disabled='true'][data-tooltip-bridge='true']:disabled:not([data-tooltip-dismissed='true'])::after {
+  top: auto;
+  bottom: calc(100% + 6px);
+}
+
+@media (min-width: 640px) {
+  button[data-tooltip][data-tooltip-sm-hidden='true']:not(:disabled):hover::after,
+  button[data-tooltip][data-tooltip-sm-hidden='true']:not(:disabled):focus-visible::after,
+  button[data-tooltip][data-tooltip-sm-hidden='true'][data-tooltip-bridge='true']:not(:disabled)::after,
+  button[data-tooltip][data-tooltip-sm-hidden='true'][data-tooltip-when-disabled='true']:disabled:hover::after,
+  button[data-tooltip][data-tooltip-sm-hidden='true'][data-tooltip-when-disabled='true'][data-tooltip-hovered='true']:disabled::after,
+  button[data-tooltip][data-tooltip-sm-hidden='true'][data-tooltip-when-disabled='true'][data-tooltip-bridge='true']:disabled::after {
+    display: none;
+  }
+}
+
+[hidden] button[data-tooltip]::after,
+[inert] button[data-tooltip]::after,
+[aria-hidden='true'] button[data-tooltip]::after {
+  display: none;
+}
+
+[data-tooltip-strip][data-tooltip-strip-active='true'] {
+  z-index: 30;
+}
+
+/* Accessible high-contrast dark studio range sliders (rounded pill track + crisp thumb) */
+input[type='range'].compass-range-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+}
+
+input[type='range'].compass-range-slider::-webkit-slider-runnable-track {
+  height: 8px;
+  border-radius: 9999px;
+  background-color: #27272A;
+  border: 1px solid #82828B;
+}
+
+input[type='range'].compass-range-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  margin-top: -6px;
+  height: 18px;
+  width: 18px;
+  border-radius: 9999px;
+  background-color: #F4F4F5;
+  border: 2px solid #09090B;
+}
+
+input[type='range'].compass-range-slider::-moz-range-track {
+  height: 8px;
+  border-radius: 9999px;
+  background-color: #27272A;
+  border: 1px solid #82828B;
+  box-sizing: border-box;
+}
+
+input[type='range'].compass-range-slider::-moz-range-thumb {
+  height: 18px;
+  width: 18px;
+  border-radius: 9999px;
+  background-color: #F4F4F5;
+  border: 2px solid #09090B;
+  box-sizing: border-box;
+}
+
+input[type='range'].compass-range-slider:focus-visible::-webkit-slider-thumb {
+  outline: 2px solid #38BDF8;
+  outline-offset: 2px;
+}
+
+input[type='range'].compass-range-slider:focus-visible::-moz-range-thumb {
+  outline: 2px solid #38BDF8;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after,
+  :root[class][class],
+  :root [class][class],
+  :root [class][class]::before,
+  :root [class][class]::after {
+    animation-duration: 0.01ms;
+    animation-iteration-count: 1;
+    transition-duration: 0.01ms;
+    scroll-behavior: auto;
+  }
+}
